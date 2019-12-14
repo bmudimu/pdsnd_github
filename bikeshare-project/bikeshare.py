@@ -2,6 +2,8 @@ import time
 import pandas as pd
 import numpy as np
 
+# This file was updated for the git proect 10/12/2019 for the refactoring step
+
 month_list = ['january', 'february', 'march', 'april', 'may', 'june']
 day_list = ['sunday', 'monday','tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
@@ -24,7 +26,7 @@ def get_filters():
         # get user input for month (all, january, february, ... , june)
         print('\nEnter month between january and June to analyze or ')
         month = input('just press Enter to use all months: ')
-        if month == "": month = 'all' 
+        if month == "": month = 'all'
 
 
         # get user input for day of week (all, monday, tuesday, ... sunday)
@@ -34,12 +36,12 @@ def get_filters():
 
 
         print('-'*40)
-        
+
         filter_prompt = input('\nAre you happy with the following filters: \n City: {} \n Month: {} \n Day: {} \n Enter Yes[Y] or No[N]: '.format(city, month, day))
-        
+
         if filter_prompt.lower() == 'yes' or filter_prompt.lower() == 'y' or filter_prompt.lower() == '' :
             break
-        
+
     return city, month, day
 
 
@@ -117,7 +119,7 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*60)
-    
+
 
 
 def trip_duration_stats(df):
@@ -148,18 +150,18 @@ def user_stats(df):
     if 'Gender' in df.columns:
         gender_count_dict = df['Gender'].value_counts().to_dict() # to pick indvidual values and not print the default value_counts table
         print('\nHere are the counts by gender \n')
-        
+
         for key in gender_count_dict:
-            # Display counts of gender                
+            # Display counts of gender
             print(key.lower() + ': {} \n'.format(gender_count_dict[key]))
     else:
         print('\n' + '-'*20 + ' The selected data set has no Gender infomation ' + '-'*20 + '\n')
-    
+
     if 'User Type' in df.columns:
         user_count_dict = df['User Type'].value_counts().to_dict() # to pick indvidual values and not print the default value_counts table
         print('\nHere are the User Type counts \n')
         for key in user_count_dict:
-            # Display counts of user types                
+            # Display counts of user types
             print(key.lower() + ': {} \n'.format(user_count_dict[key]))
     else:
         print('\n' + '-'*20 + ' The selected data set has no User Type infomation ' + '-'*20 + '\n')
@@ -167,8 +169,8 @@ def user_stats(df):
     if 'Birth Year' in df.columns:
         # Display earliest, most recent, and most common year of birth
         print('\nEarliest year of birth: {}.\n Most recent year of birth: {}.\n Most common year of birth: {}.\n'.format(int(df['Birth Year'].min()), int(df['Birth Year'].max()), int(df['Birth Year'].mode()[0])))
-    else:            
-        print('\n' + '-'*20 + ' The selected data set has no Birth Year infomation ' + '-'*20 + '\n')    
+    else:
+        print('\n' + '-'*20 + ' The selected data set has no Birth Year infomation ' + '-'*20 + '\n')
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -181,7 +183,7 @@ def display_raw(df):
         print('-'*120 )
         print(df.loc[:, 'Start Time':'Hour'].head(rows))
         print('-'*120 )
-        
+
         raw_prompt = input('Do you want to see 5 more rows? Yes[y] or No[n].\n')
         while raw_prompt.lower() == 'yes' or raw_prompt.lower() == 'y':
             rows += 5
