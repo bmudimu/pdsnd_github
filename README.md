@@ -5,10 +5,10 @@
 Programming for Data Science Nano Degree
 
 ### Description
-Describe what your project is about and what it does
+Creating a git repository for the bikeshare project as a requirement for the PDSND
 
 ### Files used
-Include the files used
+bikeshare.py
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
