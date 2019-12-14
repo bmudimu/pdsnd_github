@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 
-# This file was updated for the git proect 10/12/2019
+# This file was updated for the git proect 10/12/2019 for the refactoring step
 
 month_list = ['january', 'february', 'march', 'april', 'may', 'june']
 day_list = ['sunday', 'monday','tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
